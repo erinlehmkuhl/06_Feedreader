@@ -9,6 +9,7 @@
  * to ensure they don't run until the DOM is ready.
  */
 $(function() {
+
     /* This is our first test suite - a test suite just contains
     * a related set of tests. This suite is all about the RSS
     * feeds definitions, the allFeeds variable in our application.
@@ -32,21 +33,39 @@ $(function() {
          * and that the URL is not empty.
          */
 
+         it('has a URL property', function(){
+            for (var i = 0; i < allFeeds.length; i++){
+                expect(allFeeds[i].url).toContain("http");
+            }
+         });
+
 
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+
+
+         it('has a name property', function(){
+            for (var i = 0; i < allFeeds.length; i++){
+                expect(allFeeds[i].name).toBeTruthy();
+            }
+         });
     });
 
 
     /* TODO: Write a new test suite named "The menu" */
-
+    describe('The Menu', function() {
         /* TODO: Write a test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
          */
+
+        it('is hidden on load', function() {
+            var body = $("body");
+            expect(body).toHaveClass("menu-hidden");
+        });
 
          /* TODO: Write a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
@@ -54,6 +73,14 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
 
+        it ("toggles when clicked", function() {
+            var menuIcon = $('.menu-icon-link');
+            var body = $("body");
+            menuIcon.trigger('click');
+            expect(body).not.toHaveClass("menu-hidden");
+            menuIcon.trigger('click');
+            expect(body).toHaveClass("menu-hidden");
+        });
     /* TODO: Write a new test suite named "Initial Entries" */
 
         /* TODO: Write a test that ensures when the loadFeed
@@ -69,4 +96,5 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+     });
 }());
