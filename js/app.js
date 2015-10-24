@@ -43,7 +43,8 @@ function init() {
 function loadFeed(id, cb) {
     var feedUrl = allFeeds[id].url,
         feedName = allFeeds[id].name,
-        feed = new google.feeds.Feed(feedUrl);
+        feed = new google.feeds.Feed(feedUrl)
+
 
     /* Load the feed using the Google Feed Reader API.
      * Once the feed has been loaded, the callback function
@@ -72,8 +73,8 @@ function loadFeed(id, cb) {
             entries.forEach(function(entry) {
                 container.append(entryTemplate(entry));
             });
+            
         }
-
         if (cb) {
             cb();
         }
