@@ -1,6 +1,9 @@
 # Jasmine Unit Testing
 A script was forked from Udacity and I set up several tests in a separate spec file. Below are the required tests.
 
+# To load the project:
+Fork the project or download a zip file of it and then open the index.html in your browser.
+
 # Tests:
 
 * Write a test that loops through each feed in the allFeeds object and ensures it has a URL defined and that the URL is not empty.
